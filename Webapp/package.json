@@ -1,0 +1,25 @@
+{
+  "name": "webapp",
+  "version": "1.0.0",
+  "description": "Webapp cua Trung",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/qtrung811203/nodejs_webapp.git"
+  },
+  "keywords": [
+    "web"
+  ],
+  "author": "trungnq",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/qtrung811203/nodejs_webapp/issues"
+  },
+  "homepage": "https://github.com/qtrung811203/nodejs_webapp#readme",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
