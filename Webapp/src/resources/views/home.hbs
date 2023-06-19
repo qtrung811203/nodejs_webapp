@@ -1,0 +1,26 @@
+<div class="mb-3 mt-5">
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+        {{#each toys}}
+        <div class="col-md-4">
+            <div class="card h-100" style="max-width: 540px;">
+            <div class="row">
+                <div class="col-md-6">
+                    <a href="/toys/{{this.slug}}">
+                        <img src={{this.image}} class="img-fluid rounded-start img-responsive"  alt="{{this.name}}">
+                    </a>
+                </div>
+                <div class="col-md-6">
+                <div class="card-body">
+                    <a href="/toys/{{this.slug}}">
+                        <h5 class="card-title">{{this.name}}</h5>
+                    </a>
+                    <p class="card-text">{{this.description}}</p>
+                </div>
+                </div>
+
+            </div>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+</div>

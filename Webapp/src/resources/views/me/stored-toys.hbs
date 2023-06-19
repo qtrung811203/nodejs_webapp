@@ -1,0 +1,75 @@
+<div class="mt-4">
+    <h3>TOYS LIST</h3>
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">No</th>
+            <th scope="col">Name</th>
+            <th scope="col">Description</th>
+            <th scope="col">Create time</th>
+            <th></th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each toys}}
+        <tr>
+            <th scope="row">{{sum @index 1}}</th>
+            <td>{{this.name}}</td>
+            <td>{{this.description}}</td>
+            <td>{{this.createdAt}}</td>
+            <td><a href="/toys/{{this._id}}/edit">
+                <button type="button" class="btn btn-success">EDIT</button>
+            </a></td>
+            <td>
+                <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#delete-toy" data-bs-id="{{this._id}}">DELETE</button>
+            </td>
+        </tr>
+        {{/each}}
+    </tbody>
+  </table>
+</div>
+
+{{!-- Delete hidden form --}}
+<form name="delete-toy-form" method="POST">
+
+</form>
+
+<!-- Modal -->
+<div class="modal fade" id="delete-toy" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">ALERT !</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        Do you want to delete this toy?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button id="btn-delete-toy" type="button" class="btn btn-danger">Delete</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<script>
+    var toyId;
+    var btnDeleteToy = document.getElementById('btn-delete-toy');
+    var deleteForm = document.forms['delete-toy-form'];
+    
+    const exampleModal = document.getElementById('delete-toy')
+    if (exampleModal) {
+        exampleModal.addEventListener('show.bs.modal', event => {
+            const button = event.relatedTarget
+            toyId = button.getAttribute('data-bs-id')
+        })
+    }
+    
+    btnDeleteToy.onclick = function(){
+        deleteForm.action = '/toys/' + toyId + '?_method=DELETE';
+        deleteForm.submit();
+    }
+</script>

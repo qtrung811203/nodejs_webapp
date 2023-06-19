@@ -2,8 +2,11 @@
   "name": "webapp",
   "version": "1.0.0",
   "description": "Webapp cua Trung",
-  "main": "index.js",
+  "main": "src/index.js",
   "scripts": {
+    "beautiful": "lint-staged",
+    "start": "nodemon --inspect src/index.js",
+    "watch": "node-sass -w src/resources/scss/ --output src/public/css/",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -18,8 +21,17 @@
   "bugs": {
     "url": "https://github.com/qtrung811203/nodejs_webapp/issues"
   },
+  "lint-staged": {
+    "src/**/*.{js,json,scss}": "prettier --single-quote --trailing-comma all --tab-width 4 --write"
+  },
   "homepage": "https://github.com/qtrung811203/nodejs_webapp#readme",
   "dependencies": {
-    "express": "^4.18.2"
+    "express": "^4.18.2",
+    "express-handlebars": "^7.0.7",
+    "husky": "^8.0.3",
+    "lint-staged": "^13.2.2",
+    "mongoose": "^7.3.0",
+    "node-sass": "^9.0.0",
+    "prettier": "^2.8.8"
   }
 }
